@@ -189,6 +189,7 @@ section h2 {
   position: relative;
   z-index: 1;
   max-width: 720px;
+  padding-top: 60px;
 }
 
 .hero-copy h1 {
