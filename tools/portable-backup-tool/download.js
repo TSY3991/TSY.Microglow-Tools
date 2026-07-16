@@ -30,34 +30,116 @@
     return date.toLocaleDateString("zh-TW", { year: "numeric", month: "2-digit", day: "2-digit" });
   }
 
-  // Small renderer for GitHub release notes: escapes HTML, groups "- "/"* " lines
-  // into <ul><li>, keeps other non-empty lines as paragraphs. Not full Markdown.
+  function cleanInlineMarkdown(value) {
+    return String(value)
+      .replace(/\*\*(.*?)\*\*/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .trim();
+  }
+
+  function simplifyNote(value) {
+    const text = cleanInlineMarkdown(value);
+
+    if (text.includes("無預警關閉（跳掉）")) {
+      return "修正程式可能突然關閉的問題；如果遇到錯誤，現在會顯示原因並保留診斷紀錄，方便回報。";
+    }
+    if (text.includes("手機備份整體時限")) {
+      return "大型相簿的備份時間上限已延長到 4 小時，幾萬張照片或影片較不容易在途中被中止；手機斷線時會立即提醒。";
+    }
+    if (text.includes("若仍遇到程式異常關閉")) {
+      return "如果仍遇到程式突然關閉，可從側邊欄匯出診斷紀錄，再附在問題回報中。";
+    }
+    if (text.includes("備份後驗證檔案完整性")) {
+      return "新增可選擇的「備份完成後再檢查」，會重新比對手機與備份檔案，確認內容完整；這項檢查需要較長時間，預設不開啟。";
+    }
+    if (text.includes("iPhone 同月份分割資料夾")) {
+      return "iPhone 將同一月份拆成多個資料夾時，備份後會自動整理到同一個月份資料夾。";
+    }
+    if (text.includes("進度顯示改用位元組")) {
+      return "進度現在會顯示百分比、預估剩餘時間，以及目前正在處理的月份。";
+    }
+    if (text.includes("備份完成／取消／失敗後")) {
+      return "備份結束後會用綠、黃、紅色清楚顯示成功、取消或失敗，離開座位回來也能立刻看懂結果。";
+    }
+    if (text.includes("iPhone 照片讀取仍受 Windows MTP")) {
+      return "使用 iPhone 備份時，請保持手機解鎖、螢幕開啟，並在手機上選擇信任這台電腦；若手機斷線，備份會停止並顯示原因。";
+    }
+
+    return text;
+  }
+
+  function userHeading(value) {
+    const headings = {
+      "手機備份穩定性（重點）": "手機備份更穩定",
+      "手機備份功能": "手機備份更好用",
+      "介面": "操作畫面更清楚"
+    };
+    return headings[value] || value;
+  }
+
+  // Converts the release body into a short, user-facing change list. Technical
+  // checksum tables stay in the dedicated SHA-256 section above.
   function renderNotes(body) {
     if (!body || !body.trim()) return "<p>此版本未提供更新說明。</p>";
+
     const lines = body.replace(/\r\n/g, "\n").split("\n");
     let html = "";
     let inList = false;
+    let skipVerification = false;
+
+    function closeList() {
+      if (!inList) return;
+      html += "</ul>";
+      inList = false;
+    }
+
     for (const rawLine of lines) {
-      const line = rawLine.trim();
+      let line = rawLine.trim();
+      const headingMatch = line.match(/^#{1,6}\s+(.+)$/);
+
+      if (headingMatch) {
+        closeList();
+        const heading = cleanInlineMarkdown(headingMatch[1]);
+        if (/檔案驗證|SHA-?256/i.test(heading)) {
+          skipVerification = true;
+          continue;
+        }
+        skipVerification = false;
+        if (heading === "這次更新了什麼") continue;
+        html += `<h3>${escapeHtml(userHeading(heading))}</h3>`;
+        continue;
+      }
+
+      if (skipVerification) {
+        if (/^iPhone\s+照片讀取/.test(line)) {
+          skipVerification = false;
+          html += "<h3>使用手機備份時</h3>";
+        } else {
+          continue;
+        }
+      }
+
+      if (!line || /^\|/.test(line) || /^[-:|\s]+$/.test(line)) continue;
+
       const isBullet = /^[-*]\s+/.test(line);
       if (isBullet) {
         if (!inList) {
           html += "<ul>";
           inList = true;
         }
-        html += `<li>${escapeHtml(line.replace(/^[-*]\s+/, ""))}</li>`;
+        line = line.replace(/^[-*]\s+/, "");
+        html += `<li>${escapeHtml(simplifyNote(line))}</li>`;
         continue;
       }
-      if (inList) {
-        html += "</ul>";
-        inList = false;
-      }
-      if (line) html += `<p>${escapeHtml(line)}</p>`;
+
+      closeList();
+      html += `<p>${escapeHtml(simplifyNote(line))}</p>`;
     }
-    if (inList) html += "</ul>";
+
+    closeList();
     return html || "<p>此版本未提供更新說明。</p>";
   }
-
   // Groups a release asset filename into one of four known download slots, or
   // null if it doesn't match (e.g. SHA256.txt, ReadMe.txt, LICENSE.txt).
   function classifyAsset(name) {
