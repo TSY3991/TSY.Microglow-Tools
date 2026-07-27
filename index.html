@@ -31,8 +31,9 @@
           <span>持續新增中</span>
         </div>
 
-        <div class="tool-grid">
-          <article class="tool-card">
+        <!-- Update data-updated-at whenever a tool receives a meaningful public release. -->
+        <div class="tool-grid" data-sort-by-updated>
+          <article class="tool-card" data-updated-at="2026-07-23">
             <div class="tool-thumb" aria-hidden="true">
               <span class="tool-thumb-icon icon-download"></span>
             </div>
@@ -44,7 +45,7 @@
             <a class="primary-link" href="./tools/portable-backup-tool/">前往下載</a>
           </article>
 
-          <article class="tool-card is-coming">
+          <article class="tool-card is-coming" data-sort-last="true">
             <div class="tool-thumb" aria-hidden="true">
               <span class="tool-thumb-icon icon-download"></span>
             </div>
@@ -58,6 +59,26 @@
         </div>
       </section>
     </main>
+    <script>
+      document.querySelectorAll("[data-sort-by-updated]").forEach((grid) => {
+        const cards = Array.from(grid.children).map((card, index) => {
+          const parsedDate = Date.parse(card.dataset.updatedAt || "");
+          return {
+            card,
+            index,
+            updatedAt: Number.isNaN(parsedDate) ? 0 : parsedDate,
+            sortLast: card.dataset.sortLast === "true"
+          };
+        });
+
+        cards
+          .sort((a, b) => {
+            if (a.sortLast !== b.sortLast) return a.sortLast ? 1 : -1;
+            return b.updatedAt - a.updatedAt || a.index - b.index;
+          })
+          .forEach(({ card }) => grid.append(card));
+      });
+    </script>
     <script src="./shared/portal-return.js?v=20260713a"></script>
   </body>
 </html>
