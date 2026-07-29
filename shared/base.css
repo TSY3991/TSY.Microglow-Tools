@@ -299,6 +299,38 @@ section h2 {
   transform: translateX(-50%) rotate(45deg);
 }
 
+/* Radar glyph for PriceRadar and other scan-based web tools. */
+.icon-radar {
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+}
+
+.icon-radar::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 3px;
+  border-radius: 999px;
+  background: #ffffff;
+  content: "";
+  transform: translateY(-50%) rotate(-42deg);
+  transform-origin: left center;
+}
+
+.icon-radar::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.22);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
 .tool-card-copy {
   min-width: 0;
 }
