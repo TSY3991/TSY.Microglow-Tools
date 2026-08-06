@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="舊車機 MP3／MP4 轉檔工具下載頁，提供 Windows x64 安裝版與免安裝版，版本與下載連結自動同步 GitHub Releases。"
+    >
+    <title>舊車機 MP3／MP4 轉檔工具｜TSY.Microglow 工具箱</title>
+    <link rel="icon" href="../../assets/logo-mark.png" type="image/png">
+    <link rel="stylesheet" href="../../shared/base.css?v=20260717a">
+    <link rel="stylesheet" href="../../shared/tool-detail.css?v=20260713b">
+    <link rel="stylesheet" href="./page.css?v=20260806a">
+  </head>
+  <body>
+    <main class="detail-shell">
+      <header class="detail-topbar">
+        <a class="back-link compact-back" href="../../">← 回工具箱</a>
+      </header>
+
+      <section class="detail-hero" aria-labelledby="tool-title">
+        <p class="eyebrow">Windows 桌面工具</p>
+        <h1 id="tool-title">舊車機 MP3／MP4 轉檔工具</h1>
+        <p class="hero-desc">
+          將常見音訊轉成 MP3、常見影片轉成 MP4，並套用本版本已驗證的舊車機友善規格；
+          提供批次處理、安全預覽、進度、取消與檔案完整性檢查。
+        </p>
+        <div class="hero-meta">
+          <span class="version-badge" data-version>載入中…</span>
+          <span class="published-meta" data-published></span>
+        </div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="download-title">
+        <h2 id="download-title">下載</h2>
+        <p class="download-hint">
+          目前程式尚未使用程式碼簽章，瀏覽器或 Windows 可能顯示安全提醒或需要較長的掃描時間。
+          請只從本頁或官方 GitHub Release 下載，並使用下方 SHA-256 核對檔案。
+        </p>
+        <p class="status-message" data-status hidden></p>
+        <div class="download-grid" data-downloads>
+          <p class="loading-placeholder">正在載入最新版本的下載連結…</p>
+        </div>
+        <p class="extra-files" data-fallback></p>
+        <p class="releases-link">
+          找不到需要的檔案，或想查看歷史版本？
+          <a href="https://github.com/TSY3991/TSY.CarMediaConverter/releases" target="_blank" rel="noopener noreferrer">
+            前往 GitHub Releases 完整頁面
+          </a>
+        </p>
+      </section>
+
+      <section class="detail-section" aria-labelledby="format-title">
+        <h2 id="format-title">已驗證輸出規格</h2>
+        <ul>
+          <li>MP3：128 kbps、44.1 kHz、雙聲道。</li>
+          <li>MP4：H.264 High Level 3.0、852×480、25 fps、AAC-LC 128 kbps。</li>
+          <li>非 16:9 影片會等比例縮放並補黑邊，不會強制拉伸。</li>
+        </ul>
+        <p>本工具不保證相容所有車機、媒體檔案或儲存裝置，請先以少量檔案在自己的車機測試。</p>
+      </section>
+
+      <section class="detail-section" aria-labelledby="verify-title">
+        <h2 id="verify-title">下載完整性驗證（SHA-256）</h2>
+        <p>下載完成後，可用以下指令核對雜湊值，確認傳輸過程沒有損毀：</p>
+        <pre class="verify-command">certutil -hashfile 檔案路徑 SHA256</pre>
+        <pre class="verify-sha" data-sha>正在載入雜湊值…</pre>
+      </section>
+
+      <section class="detail-section" aria-labelledby="notes-title">
+        <h2 id="notes-title">版本更新說明</h2>
+        <div class="release-notes" data-notes>
+          <p>正在載入更新說明…</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./download.js?v=20260806a"></script>
+  </body>
+</html>

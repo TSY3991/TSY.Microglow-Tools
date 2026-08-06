@@ -1,0 +1,16 @@
+#tool-title,
+.download-card-copy strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 560px) {
+  #tool-title {
+    font-size: clamp(1.65rem, 8.2vw, 2.15rem);
+    line-height: 1.08;
+  }
+
+  .download-card-copy strong {
+    font-size: 0.92rem;
+  }
