@@ -122,7 +122,7 @@
     return `<a href="${escapeHtml(asset.browser_download_url)}">${escapeHtml(asset.name)}（${formatBytes(asset.size)}）</a>`;
   }
 
-  async function loadShaText(assets) {
+  async function loadShaText(assets, release) {
     if (!shaEl) return;
     const shaAsset = assets.find((asset) => /sha256/i.test(asset.name));
     if (!shaAsset) {
@@ -134,7 +134,22 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       shaEl.textContent = await response.text();
     } catch {
-      shaEl.innerHTML = `無法自動載入雜湊值內容，請直接下載 <a href="${escapeHtml(shaAsset.browser_download_url)}">${escapeHtml(shaAsset.name)}</a> 查看。`;
+      try {
+        const tag = encodeURIComponent(release.tag_name || "main");
+        const manifestUrl = `https://raw.githubusercontent.com/${REPO}/${tag}/RELEASE-MANIFEST.json`;
+        const response = await fetch(manifestUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const manifest = await response.json();
+        const rows = Array.isArray(manifest.assets)
+          ? manifest.assets
+              .filter((asset) => asset && asset.file && asset.sha256)
+              .map((asset) => `${asset.sha256}  ${asset.file}`)
+          : [];
+        if (!rows.length) throw new Error("manifest has no hashes");
+        shaEl.textContent = `${rows.join("\n")}\n`;
+      } catch {
+        shaEl.innerHTML = `無法自動載入雜湊值內容，請直接下載 <a href="${escapeHtml(shaAsset.browser_download_url)}">${escapeHtml(shaAsset.name)}</a> 查看。`;
+      }
     }
   }
 
@@ -176,7 +191,7 @@
         fallbackEl.innerHTML = `其他檔案：${extras.map(buildExtraLink).join("、")}`;
       }
 
-      await loadShaText(assets);
+      await loadShaText(assets, release);
     } catch {
       if (statusEl) {
         statusEl.textContent = "無法自動載入最新版本資訊，請直接前往下方「GitHub Releases 完整頁面」下載。";
