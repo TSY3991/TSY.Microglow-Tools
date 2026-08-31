@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="PhotoConverter 照片轉檔工具下載頁，提供 Windows x64 安裝版與免安裝版，支援 HEIC/HEIF/JPG/PNG/WebP 等格式批次轉換與 PDF 合併，版本與下載連結自動同步 GitHub Releases。"
+    >
+    <title>PhotoConverter 照片轉檔工具｜TSY.Microglow 工具箱</title>
+    <link rel="icon" href="../../assets/logo-mark.png" type="image/png">
+    <link rel="stylesheet" href="../../shared/base.css?v=20260831a">
+    <link rel="stylesheet" href="../../shared/tool-detail.css?v=20260831a">
+  </head>
+  <body>
+    <main class="detail-shell">
+      <header class="detail-topbar">
+        <a class="back-link compact-back" href="../../">← 回工具箱</a>
+      </header>
+
+      <section class="detail-hero" aria-labelledby="tool-title">
+        <p class="eyebrow">Windows 桌面工具</p>
+        <h1 id="tool-title">PhotoConverter 照片轉檔工具</h1>
+        <p class="hero-desc">
+          批次把 HEIC、HEIF、JPG、PNG、WebP 等常見圖片轉成 JPG、PNG、WebP、AVIF、TIFF、BMP、GIF、ICO，
+          或把多張圖片合併成一份 PDF；每張輸出都會先寫暫存檔再重新解碼驗證，成功驗證後才可選擇把原始圖片移到資源回收筒。
+        </p>
+        <div class="hero-meta">
+          <span class="version-badge" data-version>載入中…</span>
+          <span class="published-meta" data-published></span>
+        </div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="download-title">
+        <h2 id="download-title">下載</h2>
+        <p class="download-hint">
+          安裝版下載完成後，瀏覽器與 Windows 可能會花幾十秒掃描檔案安全性（因為尚未申請程式碼簽章），
+          進度看起來像卡住是正常現象，請耐心等候即可；若不想等待掃描，也可以改用下方的免安裝版。
+        </p>
+        <p class="status-message" data-status hidden></p>
+        <div class="download-grid" data-downloads>
+          <p class="loading-placeholder">正在載入最新版本的下載連結…</p>
+        </div>
+        <p class="extra-files" data-fallback></p>
+        <p class="releases-link">
+          找不到你需要的版本，或想看歷史版本？
+          <a href="https://github.com/TSY3991/TSY.PhotoConverter/releases" target="_blank" rel="noopener noreferrer">
+            前往 GitHub Releases 完整頁面
+          </a>
+        </p>
+      </section>
+
+      <section class="detail-section" aria-labelledby="format-title">
+        <h2 id="format-title">支援格式</h2>
+        <ul>
+          <li>輸入：HEIC、HEIF、JPG、JPEG、PNG、WebP、BMP、TIF、TIFF、GIF、AVIF、ICO。</li>
+          <li>輸出：JPG、PNG、WebP、AVIF、TIFF、BMP、GIF、ICO，或合併成 PDF。</li>
+          <li>GIF 只會輸出第一張靜態畫面，不保留動畫。</li>
+          <li>PDF 模式會把掃描到的圖片依檔名排序合併成 <code>ConvertedImages.pdf</code>，同名檔案已存在時整批略過，且不會回收原始圖片。</li>
+        </ul>
+        <p>HEIC/HEIF 若無法解碼，請確認 Windows 已安裝 Microsoft HEIF Image Extensions；本工具不宣稱相容所有手機或設備產生的 HEIC/HEIF 檔案。</p>
+      </section>
+
+      <section class="detail-section" aria-labelledby="verify-title">
+        <h2 id="verify-title">下載完整性驗證（SHA-256）</h2>
+        <p>
+          下載完成後，建議用以下指令核對雜湊值，確認檔案在傳輸過程中沒有被竄改或損毀：
+        </p>
+        <pre class="verify-command">certutil -hashfile 檔案路徑 SHA256</pre>
+        <pre class="verify-sha" data-sha>正在載入雜湊值…</pre>
+      </section>
+
+      <section class="detail-section" aria-labelledby="notes-title">
+        <h2 id="notes-title">版本更新說明</h2>
+        <div class="release-notes" data-notes>
+          <p>正在載入更新說明…</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./download.js?v=20260831a"></script>
+  </body>
+</html>
