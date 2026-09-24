@@ -7,7 +7,7 @@
 - 工具箱：https://tsy3991.github.io/TSY.Microglow-Tools/
 - PriceRadar 價格雷達：https://tsy3991.github.io/TSY.Microglow-Tools/tools/price-radar/
 - 隨身硬碟同步備份工具：https://tsy3991.github.io/TSY.Microglow-Tools/tools/portable-backup-tool/
-- 舊車機 MP3／MP4 轉檔工具：https://tsy3991.github.io/TSY.Microglow-Tools/tools/car-media-converter/
+- 媒體轉檔工具：https://tsy3991.github.io/TSY.Microglow-Tools/tools/car-media-converter/
 - PhotoConverter 照片轉檔工具：https://tsy3991.github.io/TSY.Microglow-Tools/tools/photo-converter/
 
 ## Structure
@@ -42,7 +42,7 @@ Tools/
   [TSY.PortableBackupTool](https://github.com/TSY3991/TSY.PortableBackupTool) 的
   GitHub Releases 最新版本（版本號、更新說明、各架構下載連結、SHA256），新版發布後
   不需要回來改這個頁面。
-- `tools/car-media-converter/`：舊車機 MP3／MP4 轉檔工具，頁面會自動抓取
+- `tools/car-media-converter/`：媒體轉檔工具，提供通用 MP3／MP4、進階影片格式與 AI 畫質放大，頁面會自動抓取
   [TSY.CarMediaConverter](https://github.com/TSY3991/TSY.CarMediaConverter) 的
   最新 Release，提供 Windows x64 安裝版、免安裝版、SHA-256 與版本說明。
 - `tools/photo-converter/`：PhotoConverter 照片轉檔工具，頁面會自動抓取
