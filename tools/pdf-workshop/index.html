@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="PDF 工坊下載頁，離線 PDF 整理、合併、拆分、轉換與加密小工具，提供 Windows x64／ARM64 安裝版與免安裝版下載，版本資訊自動同步 GitHub 最新發布。"
+    >
+    <title>PDF 工坊｜TSY.Microglow 工具箱</title>
+    <link rel="icon" href="../../assets/logo-mark.png" type="image/png">
+    <link rel="stylesheet" href="../../shared/base.css?v=20260713a">
+    <link rel="stylesheet" href="../../shared/tool-detail.css?v=20260713b">
+  </head>
+  <body>
+    <main class="detail-shell">
+      <header class="detail-topbar">
+        <a class="back-link compact-back" href="../../">← 回工具箱</a>
+      </header>
+
+      <section class="detail-hero" aria-labelledby="tool-title">
+        <p class="eyebrow">Windows 桌面工具</p>
+        <h1 id="tool-title">PDF 工坊</h1>
+        <p class="hero-desc">
+          離線 PDF 小工具，整理頁面、合併、拆分、浮水印、圖片與 PDF 互轉、加解密等 17 項功能，
+          檔案全程只在你的電腦上處理，輸出一律另存新檔，不會覆蓋原檔。
+        </p>
+        <div class="hero-meta">
+          <span class="version-badge" data-version>載入中…</span>
+          <span class="published-meta" data-published></span>
+        </div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="download-title">
+        <h2 id="download-title">下載</h2>
+        <p class="download-hint">
+          尚未申請程式碼簽章，下載後瀏覽器與 Windows 可能花幾十秒掃描，第一次執行也可能出現「Windows 已保護您的電腦」，
+          請點「其他資訊」→「仍要執行」。若不想等待掃描，也可以改用免安裝版。需求：Windows 10 1809 以上。
+        </p>
+        <p class="status-message" data-status hidden></p>
+        <div class="download-grid" data-downloads>
+          <p class="loading-placeholder">正在載入最新版本的下載連結…</p>
+        </div>
+        <p class="extra-files" data-fallback></p>
+        <p class="releases-link">
+          找不到你需要的版本，或想看歷史版本？
+          <a href="https://github.com/TSY3991/TSY.PdfWorkshop/releases" target="_blank" rel="noopener noreferrer">
+            前往 GitHub Releases 完整頁面
+          </a>
+        </p>
+      </section>
+
+      <section class="detail-section" aria-labelledby="verify-title">
+        <h2 id="verify-title">下載完整性驗證（SHA-256）</h2>
+        <p>
+          下載完成後，建議用以下指令核對雜湊值，確認檔案在傳輸過程中沒有被竄改或損毀：
+        </p>
+        <pre class="verify-command">certutil -hashfile 檔案路徑 SHA256</pre>
+        <pre class="verify-sha" data-sha>正在載入雜湊值…</pre>
+      </section>
+
+      <section class="detail-section" aria-labelledby="notes-title">
+        <h2 id="notes-title">版本更新說明</h2>
+        <div class="release-notes" data-notes>
+          <p>正在載入更新說明…</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./download.js?v=20261007a"></script>
+  </body>
+</html>

@@ -9,6 +9,7 @@
 - 隨身硬碟同步備份工具：https://tsy3991.github.io/TSY.Microglow-Tools/tools/portable-backup-tool/
 - 媒體轉檔工具：https://tsy3991.github.io/TSY.Microglow-Tools/tools/car-media-converter/
 - PhotoConverter 照片轉檔工具：https://tsy3991.github.io/TSY.Microglow-Tools/tools/photo-converter/
+- PDF 工坊：https://tsy3991.github.io/TSY.Microglow-Tools/tools/pdf-workshop/
 
 ## Structure
 
@@ -33,6 +34,9 @@ Tools/
     photo-converter/
       index.html
       download.js      — 讀取 TSY.PhotoConverter 最新 Release
+    pdf-workshop/
+      index.html
+      download.js      — 讀取 TSY.PdfWorkshop 最新 Release
 ```
 
 ## Current Tools
@@ -48,6 +52,9 @@ Tools/
 - `tools/photo-converter/`：PhotoConverter 照片轉檔工具，頁面會自動抓取
   [TSY.PhotoConverter](https://github.com/TSY3991/TSY.PhotoConverter) 的
   最新 Release，提供 Windows x64 安裝版、免安裝版、SHA-256 與版本說明。
+- `tools/pdf-workshop/`：PDF 工坊，頁面會自動抓取
+  [TSY.PdfWorkshop](https://github.com/TSY3991/TSY.PdfWorkshop) 的
+  最新 Release，提供 Windows x64／ARM64 安裝版、免安裝版、SHA-256 與版本說明。
 
 ## 新增工具時
 
