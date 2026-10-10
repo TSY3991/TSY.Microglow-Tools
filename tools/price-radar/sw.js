@@ -7,7 +7,7 @@
  *   斷網時退回快取，讓已開過的頁面離線也能打開外殼
  * - 換版本時（CACHE_NAME 變更）舊快取整批清掉
  */
-const CACHE_NAME = 'price-radar-shell-v2-20261011a';
+const CACHE_NAME = 'price-radar-shell-v2-20261011b';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
