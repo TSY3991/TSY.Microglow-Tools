@@ -1,0 +1,9 @@
+/* Shared app icons and actual desktop-tool previews. */
+.tool-thumb:has(.tool-app-icon) { background: transparent; box-shadow: none; }
+.tool-app-icon { display: block; width: 100%; height: 100%; object-fit: contain; }
+.tool-screenshot { margin: 0 0 24px; max-width: 860px; }
+.tool-screenshot-link { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: var(--soft-shadow); cursor: zoom-in; }
+.tool-screenshot-link:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+.tool-screenshot img { display: block; width: 100%; height: auto; }
+.tool-screenshot figcaption { margin-top: 9px; color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+@media (max-width: 560px) { .tool-screenshot { margin-bottom: 20px; } .tool-screenshot-link { border-radius: 10px; } }

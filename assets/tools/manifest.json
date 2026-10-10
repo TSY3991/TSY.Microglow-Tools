@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "capturedOn": "2026-10-10",
+  "tools": {
+    "pdf-workshop": {
+      "name": "PDF 工坊",
+      "version": "1.1.0",
+      "icon": "assets/tools/pdf-workshop/icon.png",
+      "screenshot": "assets/tools/pdf-workshop/screenshot.png",
+      "width": 1105,
+      "height": 762,
+      "iconSha256": "f33918d65cd0a94378423064fd11d8f57024aa321a46d78c165781db3df5692c",
+      "screenshotSha256": "ccd25c3c796d995a256c9de80f8b3dd349fff4bda82ba488f591d2f6246b0889",
+      "captureMethod": "WPF controls rendered from release assembly with isolated empty settings"
+    },
+    "car-media-converter": {
+      "name": "媒體轉檔工具",
+      "version": "1.5.1",
+      "icon": "assets/tools/car-media-converter/icon.png",
+      "screenshot": "assets/tools/car-media-converter/screenshot.png",
+      "width": 1205,
+      "height": 742,
+      "iconSha256": "4a938e33a5d23612bc53f4f17f7ea26feec3c544c487d1a50ebf19b46951c16f",
+      "screenshotSha256": "e09a0ac75ecd63b614377a70c6111b76c42965aadaefa08843f88f0efabfbf4a",
+      "captureMethod": "WPF controls rendered from release assembly with isolated empty settings"
+    },
+    "portable-backup-tool": {
+      "name": "隨身硬碟同步備份工具",
+      "version": "1.3.13",
+      "icon": "assets/tools/portable-backup-tool/icon.png",
+      "screenshot": "assets/tools/portable-backup-tool/screenshot.png",
+      "width": 1523,
+      "height": 803,
+      "iconSha256": "64f37f26de6cd02f92bd1f6bf637d9f6954581d552b8f54106ac4b48fd233c4b",
+      "screenshotSha256": "7535bfbab3354fad384cc55b53efc9d6b457f4d6d32209411d0512e51cd7831d",
+      "captureMethod": "WPF controls rendered from release assembly with isolated empty settings"
+    },
+    "photo-converter": {
+      "name": "PhotoConverter 照片轉檔工具",
+      "version": "1.2.2",
+      "icon": "assets/tools/photo-converter/icon.png",
+      "screenshot": "assets/tools/photo-converter/screenshot.png",
+      "width": 1165,
+      "height": 844,
+      "iconSha256": "c066836ee0528d9d24420c848e5cf570dfa43313cfee92798f2c82edca92bf17",
+      "screenshotSha256": "a6e964a5a65aee969b6d516c08dad25af4dbc2c139ea0dfbeae18d0caf596641",
+      "captureMethod": "WPF controls rendered from release assembly with isolated empty settings"
+    }
+  }
+}
