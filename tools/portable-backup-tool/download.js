@@ -195,8 +195,36 @@
     }
   }
 
+  const RELEASES_URL = `https://api.github.com/repos/${REPO}/releases?per_page=100`;
+
+  // The date on the page must separate the first public release from the
+  // current version's update date. /releases/latest alone only knows the latter.
+  async function loadFirstPublished() {
+    try {
+      const response = await fetch(RELEASES_URL, { headers: { Accept: "application/vnd.github+json" } });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const list = await response.json();
+      const dates = (Array.isArray(list) ? list : [])
+        .filter((item) => item && !item.draft && !item.prerelease && item.published_at)
+        .map((item) => item.published_at)
+        .sort();
+      return dates[0] || "";
+    } catch {
+      return "";
+    }
+  }
+
+  function describePublished(latestIso, firstIso) {
+    const latest = formatDate(latestIso);
+    const first = formatDate(firstIso);
+    if (!first) return `最新版發布於 ${latest}`;
+    if (first === latest) return `發布於 ${latest}`;
+    return `首次發布 ${first} · 本版更新 ${latest}`;
+  }
+
   async function init() {
     try {
+      const firstPublishedPromise = loadFirstPublished();
       const response = await fetch(API_URL, { headers: { Accept: "application/vnd.github+json" } });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const release = await response.json();
@@ -204,7 +232,7 @@
 
       if (versionEl) versionEl.textContent = release.tag_name || "未知版本";
       if (publishedEl && release.published_at) {
-        publishedEl.textContent = `發布於 ${formatDate(release.published_at)}`;
+        publishedEl.textContent = describePublished(release.published_at, await firstPublishedPromise);
       }
       if (notesEl) notesEl.innerHTML = renderNotes(release.body);
 
