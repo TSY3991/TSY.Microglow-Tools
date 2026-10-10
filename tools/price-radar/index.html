@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="zh-Hant-TW">
   <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; img-src &#39;self&#39; data: blob: https://xduwufkfmzovlwcyodcp.supabase.co; connect-src &#39;self&#39; https://xduwufkfmzovlwcyodcp.supabase.co; media-src &#39;self&#39; blob:; worker-src &#39;self&#39;; manifest-src &#39;self&#39;; object-src &#39;none&#39;; base-uri &#39;self&#39;; form-action &#39;self&#39;">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#f8f4ec" />
@@ -25,17 +27,9 @@
     <link rel="canonical" href="https://tsy3991.github.io/TSY.Microglow-Tools/tools/price-radar/">
     <title>PriceRadar 價格雷達</title>
     <script type="module" crossorigin src="./assets/rolldown-runtime-Bh1tDfsg.js"></script>
-    <script type="module" crossorigin src="./assets/main-BcSFaCOT.js"></script>
+    <script type="module" crossorigin src="./assets/main-DIqtVXVO.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      // PWA：註冊 service worker（離線外殼）。註冊失敗不影響 App 本體。
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('./sw.js').catch(() => {});
-        });
-      }
-    </script>
   </body>
 </html>
