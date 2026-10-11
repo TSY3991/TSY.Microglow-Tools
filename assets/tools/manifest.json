@@ -1,17 +1,18 @@
 {
   "schemaVersion": 1,
-  "capturedOn": "2026-10-10",
+  "capturedOn": "2026-10-12",
   "tools": {
     "pdf-workshop": {
       "name": "PDF 工坊",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "icon": "assets/tools/pdf-workshop/icon.png",
       "screenshot": "assets/tools/pdf-workshop/screenshot.png",
       "width": 1105,
       "height": 762,
       "iconSha256": "f33918d65cd0a94378423064fd11d8f57024aa321a46d78c165781db3df5692c",
-      "screenshotSha256": "ccd25c3c796d995a256c9de80f8b3dd349fff4bda82ba488f591d2f6246b0889",
-      "captureMethod": "WPF controls rendered from release assembly with isolated empty settings"
+      "screenshotSha256": "5caa5b030b95913ba3ae65beb6a92220cf39d27894e88de649e27eb5a563fd8b",
+      "capturedOn": "2026-10-12",
+      "captureMethod": "Actual WPF main window built from v1.2.0 source, rendered off-screen with RenderTargetBitmap and isolated empty settings; fictional sample PDF; not a screen capture"
     },
     "car-media-converter": {
       "name": "媒體轉檔工具",
