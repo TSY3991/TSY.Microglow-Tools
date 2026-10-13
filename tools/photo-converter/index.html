@@ -49,10 +49,10 @@
           或把多張圖片合併成一份 PDF；每張輸出都會先寫暫存檔再重新解碼驗證，成功驗證後才可選擇把原始圖片移到資源回收筒。
         </p>
         <figure class="tool-screenshot">
-          <a class="tool-screenshot-link" href="../../assets/tools/photo-converter/screenshot.png" target="_blank" rel="noopener noreferrer" aria-label="放大查看PhotoConverter 照片轉檔工具介面快照（另開分頁）">
-            <img src="../../assets/tools/photo-converter/screenshot.png" alt="PhotoConverter 照片轉檔工具 v1.2.2 實際介面，未載入使用者檔案" width="1165" height="844" decoding="async">
+          <a class="tool-screenshot-link" href="../../assets/tools/photo-converter/screenshot.png?v=20261013a" target="_blank" rel="noopener noreferrer" aria-label="放大查看PhotoConverter 照片轉檔工具介面快照（另開分頁）">
+            <img src="../../assets/tools/photo-converter/screenshot.png?v=20261013a" alt="PhotoConverter 照片轉檔工具 v1.3.0 實際介面，未載入使用者檔案" width="1180" height="882" decoding="async">
           </a>
-          <figcaption>介面快照 · v1.2.2 · 點圖放大</figcaption>
+          <figcaption>介面快照 · v1.3.0 · 點圖放大</figcaption>
         </figure>
         <div class="hero-meta">
           <span class="version-badge" data-version>載入中…</span>
@@ -77,6 +77,20 @@
             前往 GitHub Releases 完整頁面
           </a>
         </p>
+      </section>
+
+      <section class="detail-section" aria-labelledby="features-title">
+        <h2 id="features-title">主要功能</h2>
+        <ul>
+          <li>影像處理：五種尺寸模式（最大寬高、寬度、高度、百分比、固定尺寸），可一次輸出最多 6 組寬度；旋轉、水平／垂直翻轉、依比例或固定尺寸裁剪。</li>
+          <li>壓縮到指定檔案大小：限輸出 JPG、WebP、AVIF；達不到目標時會以最低品質輸出並提示。</li>
+          <li>浮水印：支援文字（含中文）與圖片，可設 9 個位置或平鋪、邊距、不透明度、旋轉與大小比例。</li>
+          <li>長圖拼接：把多張圖片垂直或水平拼成一張，可設間距與背景色。</li>
+          <li>圖片分割：依網格（例如 3×3 九宮格）或自訂像素切線切成多張。</li>
+          <li>EXIF 檢視：唯讀顯示相機、拍攝參數與 GPS，可複製全部內容，不會修改原圖。</li>
+          <li>所有功能同樣不覆寫既有檔案，輸出經驗證後才算完成。</li>
+        </ul>
+        <p>目前的限制：輸出預覽為靜態示意；圖片分割的自訂切線以輸入像素數值設定；浮水印字級為固定像素。新功能在發行版以視窗操作測試，影像處理邏輯由核心測試涵蓋。</p>
       </section>
 
       <section class="detail-section" aria-labelledby="format-title">
