@@ -422,3 +422,36 @@ section h2 {
     transition: none !important;
   }
 }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  color: #ffffff;
+  background: var(--teal-dark);
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transform: translateY(-180%);
+  transition: transform 260ms ease-out;
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline: 3px solid rgba(255, 255, 255, 0.75);
+  outline-offset: 2px;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Smooth same-origin page changes (Website / Tools / Games); browsers without support navigate normally. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
