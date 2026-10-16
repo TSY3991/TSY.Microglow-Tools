@@ -257,6 +257,13 @@ section h2 {
   transform: translateY(-2px);
 }
 
+/* Keep card actions aligned despite different description lengths. */
+@media (min-width: 541px) {
+  .lobby-shell .tool-card {
+    grid-template-rows: 1fr auto;
+  }
+}
+
 .tool-thumb {
   position: relative;
   display: grid;
