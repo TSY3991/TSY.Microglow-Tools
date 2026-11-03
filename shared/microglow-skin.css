@@ -6,6 +6,8 @@ body:has(.lobby-shell, .detail-shell) { background: radial-gradient(ellipse at 1
 :is(.lobby-hero, .detail-hero)::after { background: radial-gradient(circle at 35% 35%, #fffdf5, transparent 30%), conic-gradient(from 210deg, #8ecdbb, #e6f2e9, #e7d4a7, #8ecdbb); }
 :is(.primary-link, .download-button) { border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 4px 0 #d4e3d7, 0 8px 16px rgba(38,75,54,.08); }
 html body :is(a[href], button, input, select, textarea):focus-visible { outline: 3px solid #0a887e; outline-offset: 3px; }
+.skip-link { position:fixed; top:calc(12px + env(safe-area-inset-top,0px)); left:calc(12px + env(safe-area-inset-left,0px)); z-index:1000; padding:10px 16px; border-radius:14px; color:#102527; background:#8ee0cf; font-weight:800; text-decoration:none; box-shadow:0 8px 22px rgba(0,0,0,.22); transform:translateY(-180%); }
+.skip-link:focus-visible { transform:none; outline:3px solid #fff; outline-offset:3px; }
 /* App bundles load their own CSS dynamically; scope these overrides to the app root. */
 #root :is(.hero-panel, .section-block, .form-card, .product-hero, .empty-price, .scanner-shell, .activity-card, .shopping-list-entry, .scan-recovery) { border-radius: 24px; box-shadow: inset 0 1px 0 #fff, 0 4px 0 #dce5d6, 0 10px 22px rgba(38, 75, 54, .055); }
 #root .price-card { border-radius: 20px; }
