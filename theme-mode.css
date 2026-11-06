@@ -1,0 +1,50 @@
+:root { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+.tsy-theme-toggle { position: static; z-index: auto; display: inline-flex; align-items: center; justify-content: center; gap: .35rem; flex: 0 0 auto; min-height: 44px; margin-inline-start: auto; padding: .55rem .9rem; border: 1px solid var(--line, #c5d9cb); border-radius: 999px; color: var(--ink, #173e37); background: var(--panel, #fffdf5); box-shadow: 0 2px 0 rgba(23,62,55,.12); font: inherit; font-size: .9rem; font-weight: 800; line-height: 1.2; cursor: pointer; white-space: nowrap; }
+.tsy-theme-toggle:hover { filter: brightness(.96); }
+.tsy-theme-toggle:focus-visible { outline: 3px solid #0a887e; outline-offset: 3px; }
+:root[data-theme="dark"] .tsy-theme-toggle { color: var(--ink, #f6f3e9); background: var(--panel, #193336); border-color: var(--line, #526b6b); box-shadow: 0 2px 0 rgba(0,0,0,.25); }
+:root[data-theme="dark"] .tsy-theme-toggle:focus-visible { outline-color: #8ee0cf; }
+/* Complete dark palette for the portal and direct tool detail pages. */
+:root[data-theme="dark"]{color-scheme:dark;--page:#102527;--page-bg:#102527;--panel:#193336;--panel-soft:#203d40;--ink:#f6f3e9;--text:#f6f3e9;--muted:#b5c9c4;--line:#526b6b;--teal:#8ee0cf;--teal-dark:#8ee0cf;--gold:#ffcf70}
+:root[data-theme="dark"] body{background-color:#102527!important;background-image:linear-gradient(145deg,#102527,#193336)!important;color:#f6f3e9}
+:root[data-theme="dark"] .detail-shell{color:#f6f3e9}
+:root[data-theme="dark"] .detail-shell :is(figcaption,.loading-placeholder,.releases-link,.site-footer-copy,.muted,.text-muted){color:#b5c9c4}
+:root[data-theme="dark"] .detail-shell figcaption{background:#193336;color:#b5c9c4}
+:root[data-theme="dark"] .detail-shell :is(.primary-link,.download-button){background:#8ee0cf;color:#102527;border-color:#8ee0cf}
+:root[data-theme="dark"] .detail-shell .version-badge{background:#8ee0cf;color:#102527}
+:root[data-theme="dark"] .site-footer-copy{color:#b5c9c4}
+/* Direct tool pages: convert every primary surface to the shared dark palette. */
+:root[data-theme="dark"] .detail-shell .detail-section{background:rgba(25,51,54,.98)!important;color:#f6f3e9;border-color:#526b6b;box-shadow:0 12px 28px rgba(0,0,0,.24)}
+:root[data-theme="dark"] .detail-shell .detail-hero{color:#f6f3e9}
+:root[data-theme="dark"] .detail-shell .detail-hero :is(h1,h2,h3){color:#f6f3e9}
+:root[data-theme="dark"] .detail-shell .detail-hero :is(p,span){color:#d4e2de}
+:root[data-theme="dark"] .detail-shell .detail-hero .eyebrow{background:#204d48;color:#d4e2de}
+:root[data-theme="dark"] .detail-shell .detail-topbar .back-link{background:#193336;color:#8ee0cf;border-color:#526b6b}
+:root[data-theme="dark"] .detail-shell .detail-section :is(h2,h3,p,li,dt,dd,label,small,span){color:#d4e2de}
+:root[data-theme="dark"] .detail-shell .detail-section a:not(.download-button){color:#8ee0cf}
+:root[data-theme="dark"] .detail-shell .detail-section .download-hint{background:#203d40;color:#d4e2de}
+:root[data-theme="dark"] .detail-shell .detail-section :is(button,input,select,textarea){background:#102527;color:#f6f3e9;border-color:#526b6b}
+:root[data-theme="dark"] .detail-shell .detail-section pre{background:#0b1f21;color:#d8f5ee}
+:root[data-theme="dark"] .detail-shell .published-meta{color:#b5c9c4}
+:root[data-theme="dark"] .detail-shell .detail-hero{background:#193336;border:1px solid #526b6b;color:#f6f3e9}
+:root[data-theme="dark"] .detail-shell .download-card p{color:#102527}
+:root[data-theme="dark"] .detail-shell .download-card .download-button{background:#8ee0cf;color:#102527}
+:root[data-theme="dark"] .detail-shell .download-card .download-button *{color:#102527}
+:root[data-theme="dark"] .detail-shell .version-badge{color:#102527}
+:root[data-theme="dark"] .detail-shell .site-footer-brand{color:#b5c9c4}
+:root[data-theme="dark"] .detail-shell .detail-hero .version-badge{color:#102527}
+:root[data-theme="dark"] .detail-shell .download-card-copy span{color:#d4e2de}
+:root[data-theme="dark"] .detail-shell footer .site-footer-brand{color:#b5c9c4}
+:root[data-theme="dark"] .site-footer-brand{color:#b5c9c4!important}
+
+/* Dark theme for the tool lobby hero, categories, descriptions, and actions. */
+:root[data-theme="dark"] .lobby-hero{background:#193336!important;background-image:linear-gradient(145deg,#193336,#203d40)!important;color:#f6f3e9;border-color:#526b6b}
+:root[data-theme="dark"] .lobby-hero :is(h1,h2,p,span){color:#f6f3e9}
+:root[data-theme="dark"] .lobby-hero .eyebrow{background:#204d48;color:#d4e2de}
+:root[data-theme="dark"] .lobby-hero .back-link{background:#102527;color:#8ee0cf;border-color:#526b6b}
+:root[data-theme="dark"] .tool-card :is(p,span,small){color:#d4e2de}
+:root[data-theme="dark"] .tool-card .tool-category{background:#204d48;color:#d4e2de}
+:root[data-theme="dark"] .tool-card .primary-link{background:#8ee0cf;color:#102527}
+
+:root[data-theme="dark"] .tool-card .tool-card-copy>p:first-child{background:#204d48;color:#d4e2de}
