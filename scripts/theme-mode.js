@@ -27,7 +27,7 @@
     document.dispatchEvent(new CustomEvent('tsy-theme-change', { detail: { theme: theme } }));
   }
   function mountButton() {
-    if (document.querySelector('[data-theme-toggle]')) { updateButton(document.querySelector('[data-theme-toggle]')); return true; }
+    if (document.querySelector('[data-theme-toggle]')) return true;
     var targets = ['[data-theme-controls]', '.header-actions', '.topbar', '.detail-topbar', '.kit-topbar', '.quiz-header', '.about-header', '.app-header', 'header', 'nav', '.panel', 'main'];
     var host = null;
     for (var i = 0; i < targets.length && !host; i++) host = document.querySelector(targets[i]);
@@ -38,6 +38,12 @@
     host.insertBefore(button, host.firstChild); updateButton(button); return true;
   }
   updateMeta();
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { updateMeta(); if (!mountButton()) { var observer = new MutationObserver(function () { if (mountButton()) observer.disconnect(); }); observer.observe(document.body, { childList: true, subtree: true }); setTimeout(function () { observer.disconnect(); }, 5000); } }); else { updateMeta(); mountButton(); }
+  function ready() {
+    updateMeta(); mountButton();
+    // React may replace its root or header after the initial page load.
+    var observer = new MutationObserver(function () { mountButton(); });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
   window.addEventListener('storage', function (event) { if (event.key === storageKey && (event.newValue === 'dark' || event.newValue === 'light')) setTheme(event.newValue, false); });
 })();

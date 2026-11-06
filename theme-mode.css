@@ -48,3 +48,12 @@
 :root[data-theme="dark"] .tool-card .primary-link{background:#8ee0cf;color:#102527}
 
 :root[data-theme="dark"] .tool-card .tool-card-copy>p:first-child{background:#204d48;color:#d4e2de}
+
+/* Full light/dark text contrast review. */
+
+:root:not([data-theme="dark"]){--muted:#56645f;--teal:#08766e}
+:root:not([data-theme="dark"]) .version-badge{background:#075e59;color:#fff}
+:root[data-theme="dark"] .download-card{background:#203d40}
+:root[data-theme="dark"] :is(input,textarea)::placeholder{color:#b5c9c4;opacity:1}
+:root:not([data-theme="dark"]) #root{--muted:#4e605b;--text-muted:#4e605b}
+:root:not([data-theme="dark"]) #root .price-card strong{color:#07635e}
