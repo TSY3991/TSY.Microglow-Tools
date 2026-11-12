@@ -1,5 +1,5 @@
 /* Visual layer only; existing layout, product imagery and download/app logic are retained. */
-html:root { --microglow-style-version: 20261016a; --radius: 14px; --radius-card: 24px; --radius-control: 14px; }
+html:root { --microglow-style-version: 20261112b; --radius: 14px; --radius-card: 24px; --radius-control: 14px; }
 body:has(.lobby-shell, .detail-shell) { background: radial-gradient(ellipse at 12% 5%, rgba(181, 140, 66, .07), transparent 45%), radial-gradient(ellipse at 90% 20%, rgba(10, 136, 126, .07), transparent 50%), linear-gradient(#f5f6ed, #f9f8f0); }
 :is(.lobby-hero, .detail-hero, .detail-section, .tool-card, .download-card) { border-color: #c5d9cb; border-radius: 24px; box-shadow: inset 0 1px 0 #fff, 0 4px 0 #dce5d6, 0 10px 22px rgba(38, 75, 54, .055); }
 :is(.lobby-hero, .detail-hero)::before { background-image: linear-gradient(90deg, rgba(10,136,126,.025) 1px, transparent 1px), linear-gradient(rgba(10,136,126,.025) 1px, transparent 1px); }
@@ -15,3 +15,38 @@ html body :is(a[href], button, input, select, textarea):focus-visible { outline:
 
   :root[data-theme="dark"] #root :is(a[href], button, input, select, textarea):focus-visible{ outline-color: #8ee0cf; }
   :root[data-theme="dark"] #root :is(.hero-panel, .section-block, .form-card, .product-hero, .empty-price, .scanner-shell, .activity-card, .shopping-list-entry, .scan-recovery){ box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 4px 0 #102a29, 0 10px 22px rgba(0,0,0,.15); }
+
+/* 2026 現代字級與緊緻呼吸感優化 */
+.lobby-hero h1,
+.detail-hero h1 {
+  font-size: clamp(1.9rem, 4vw, 2.35rem) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em;
+}
+
+.lobby-hero p,
+.detail-hero p {
+  font-size: 0.95rem !important;
+  line-height: 1.68 !important;
+}
+
+.section-heading h2,
+.detail-section h2 {
+  font-size: 1.35rem !important;
+}
+
+.tool-card-copy h3 {
+  font-size: 1.12rem !important;
+}
+
+.tool-card-copy span {
+  font-size: 0.88rem !important;
+  line-height: 1.68 !important;
+}
+
+:is(.primary-link, .download-button) {
+  min-height: 44px !important;
+  font-size: 0.92rem !important;
+  font-weight: 800;
+  padding: 0 18px !important;
+}
