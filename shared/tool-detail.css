@@ -298,20 +298,30 @@
 
 .verify-command,
 .verify-sha {
-  margin: 0 0 12px;
-  padding: 14px 16px;
-  border: 1px solid rgba(216, 245, 238, 0.1);
-  border-radius: 12px;
+  margin: 0 0 14px;
+  padding: 15px 18px;
+  border: 1px solid rgba(14, 143, 136, 0.25);
+  border-radius: 14px;
   background:
-    linear-gradient(90deg, rgba(14, 143, 136, 0.12), transparent),
+    linear-gradient(90deg, rgba(14, 143, 136, 0.14), transparent),
     #0b1f21;
   color: #d8f5ee;
   font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
-  font-size: 0.86rem;
-  line-height: 1.55;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
   overflow-x: auto;
   white-space: pre-wrap;
   word-break: break-all;
+  user-select: all;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.verify-command:hover,
+.verify-sha:hover {
+  border-color: rgba(142, 224, 207, 0.45);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .verify-sha a {
