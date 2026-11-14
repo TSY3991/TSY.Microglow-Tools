@@ -67,3 +67,31 @@ html body :is(a[href], button, input, select, textarea):focus-visible { outline:
   box-shadow: 0 12px 28px rgba(23, 62, 55, 0.09), 0 2px 6px rgba(23, 62, 55, 0.04);
   border-color: #9eccba;
 }
+
+/* 消除多餘水平捲軸、強化 SHA-256 自動換行與手機版易讀性 */
+.sha256-block,
+.verify-hash,
+pre code {
+  overflow-wrap: anywhere !important;
+  word-break: break-all !important;
+  white-space: pre-wrap !important;
+}
+
+/* PriceRadar 管理後台響應式與觸控強化：消除水平擠壓 */
+#root table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  #root .admin-table-container,
+  #root .table-responsive {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  #root input,
+  #root select,
+  #root button {
+    min-height: 44px !important;
+  }
+}
