@@ -129,26 +129,7 @@
       </nav>
       <p class="site-footer-copy">© 2026 TSY.Microglow</p>
     </footer>
-    <script>
-      document.querySelectorAll("[data-sort-by-updated]").forEach((grid) => {
-        const cards = Array.from(grid.children).map((card, index) => {
-          const parsedDate = Date.parse(card.dataset.updatedAt || "");
-          return {
-            card,
-            index,
-            updatedAt: Number.isNaN(parsedDate) ? 0 : parsedDate,
-            sortLast: card.dataset.sortLast === "true"
-          };
-        });
-
-        cards
-          .sort((a, b) => {
-            if (a.sortLast !== b.sortLast) return a.sortLast ? 1 : -1;
-            return b.updatedAt - a.updatedAt || a.index - b.index;
-          })
-          .forEach(({ card }) => grid.append(card));
-      });
-    </script>
+    <script src="./scripts/sort-tools.js?v=20261115a"></script>
     <script src="./shared/portal-return.js?v=20260713a"></script>
   <script src="scripts/portal-visit-beacon.js?v=20261102a" defer></script>
 </body>
