@@ -132,20 +132,32 @@
     return `<a href="${escapeHtml(asset.browser_download_url)}">${escapeHtml(asset.name)}（${formatBytes(asset.size)}）</a>`;
   }
 
-  async function loadShaText(assets) {
+  // GitHub API 的 asset.digest 由 GitHub 計算，直接顯示；不再去抓 github.com 下載網址，
+  // 那個網址不允許跨網域讀取（CORS）也不在 CSP connect-src，每次都會失敗並在 console 報錯。
+  function digestLines(assets) {
+    return assets
+      .filter((asset) => !/sha256/i.test(asset.name))
+      .map((asset) => {
+        const digest = typeof asset.digest === "string" ? asset.digest.replace(/^sha256:/i, "") : "";
+        if (!/^[0-9a-f]{64}$/i.test(digest)) return null;
+        return `${digest}  ${asset.name}`;
+      })
+      .filter(Boolean);
+  }
+
+  function loadShaText(assets) {
     if (!shaEl) return;
+    const digests = digestLines(assets);
+    if (digests.length) {
+      shaEl.textContent = digests.join("\n");
+      return;
+    }
     const shaAsset = assets.find((asset) => /sha256/i.test(asset.name));
     if (!shaAsset) {
       shaEl.textContent = "此版本未附上 SHA256.txt。";
       return;
     }
-    try {
-      const response = await fetch(shaAsset.browser_download_url);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      shaEl.textContent = await response.text();
-    } catch {
-      shaEl.innerHTML = `無法自動載入雜湊值內容，請直接下載 <a href="${escapeHtml(shaAsset.browser_download_url)}">${escapeHtml(shaAsset.name)}</a> 查看。`;
-    }
+    shaEl.innerHTML = `請下載 <a href="${escapeHtml(shaAsset.browser_download_url)}">${escapeHtml(shaAsset.name)}</a> 查看雜湊值。`;
   }
 
   const RELEASES_URL = `https://api.github.com/repos/${REPO}/releases?per_page=100`;
